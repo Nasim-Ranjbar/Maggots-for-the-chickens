@@ -1,0 +1,150 @@
+library(decisionSupport)
+library(ggplot2)
+library(dplyr)
+
+# 1. Load the CSV file with estimates
+input_file_path <- "C:/Users/nasii/Desktop/input_draft1.csv"
+estimates <- estimate_read_csv(input_file_path)
+
+# 2. Baseline model (no BSFL powder)
+bsfl_baseline_model <- function() {
+  BSFL_powder_amount_per_kg_feed <- 0
+  cost_BSFL_powder_per_kg <- 0
+  
+  yearly_fixed_costs <- cost_of_materials_per_year +
+    cost_of_water_per_year +
+    maintenance_cost_per_year +
+    cost_of_electricity_per_year +
+    transportation_cost_per_year +
+    manager_pay_per_year +
+    (worker_pay_per_year * number_of_workers)
+  
+  cost_chicks <- cost_per_year_old_chick * number_of_chicken
+  
+  feed_cost_per_bird <- (chicken_feed_per_bird_per_year * cost_chicken_feed_per_kg) +
+    (supplement_amount_per_kg_feed * cost_supplement_per_100mL * 10) +
+    ((BSFL_powder_amount_per_kg_feed / 1000) * cost_BSFL_powder_per_kg)
+  
+  total_feed_cost <- feed_cost_per_bird * number_of_chicken
+  
+  vet_costs <- (cost_per_dr_visit * number_dr_visit_per_year) +
+    (cost_vaccinations_per_bird_per_year * number_of_chicken)
+  
+  total_eggs <- egg_yield_per_bird_per_year * number_of_chicken
+  packaging_cost <- (total_eggs / 300) * packaging_cost_per_300_eggs
+  
+  increased_interest <- rbinom(1, 1, chance_increased_consumer_interest)
+  adjusted_egg_sales <- total_eggs * (1 + increased_interest * percent_egg_sale_boast)
+  
+  egg_revenue <- (adjusted_egg_sales / 10) * selling_price_per_10_egg
+  chicken_revenue <- number_of_chicken * selling_price_per_bird
+  manure_revenue <- Number_of_manure_bags_per_year * selling_price_per_manure_bag
+  consulting_revenue <- Consulting_income_per_year
+  
+  total_revenue <- egg_revenue + chicken_revenue + manure_revenue + consulting_revenue
+  
+  ad_costs_yearly <- cost_of_advertisements_per_year
+  
+  total_costs <- yearly_fixed_costs + cost_chicks + total_feed_cost + vet_costs + packaging_cost + ad_costs_yearly
+  
+  yearly_profit <- total_revenue - total_costs
+  
+  npv <- discount(yearly_profit, discount_rate = discount_rate, calculate_NPV = TRUE)
+  
+  return(list(
+    yearly_profit = yearly_profit,
+    npv = npv
+  ))
+}
+
+# 3. Intervention model (with BSFL powder)
+bsfl_model <- function() {
+  yearly_fixed_costs <- cost_of_materials_per_year +
+    cost_of_water_per_year +
+    maintenance_cost_per_year +
+    cost_of_electricity_per_year +
+    transportation_cost_per_year +
+    manager_pay_per_year +
+    (worker_pay_per_year * number_of_workers)
+  
+  cost_chicks <- cost_per_year_old_chick * number_of_chicken
+  
+  feed_cost_per_bird <- (chicken_feed_per_bird_per_year * cost_chicken_feed_per_kg) +
+    (supplement_amount_per_kg_feed * cost_supplement_per_100mL * 10) +
+    ((BSFL_powder_amount_per_kg_feed / 1000) * cost_BSFL_powder_per_kg)
+  
+  total_feed_cost <- feed_cost_per_bird * number_of_chicken
+  
+  vet_costs <- (cost_per_dr_visit * number_dr_visit_per_year) +
+    (cost_vaccinations_per_bird_per_year * number_of_chicken)
+  
+  total_eggs <- egg_yield_per_bird_per_year * number_of_chicken
+  packaging_cost <- (total_eggs / 300) * packaging_cost_per_300_eggs
+  
+  increased_interest <- rbinom(1, 1, chance_increased_consumer_interest)
+  adjusted_egg_sales <- total_eggs * (1 + increased_interest * percent_egg_sale_boast)
+  
+  egg_revenue <- (adjusted_egg_sales / 10) * selling_price_per_10_egg
+  chicken_revenue <- number_of_chicken * selling_price_per_bird
+  manure_revenue <- Number_of_manure_bags_per_year * selling_price_per_manure_bag
+  consulting_revenue <- Consulting_income_per_year
+  
+  total_revenue <- egg_revenue + chicken_revenue + manure_revenue + consulting_revenue
+  
+  ad_costs_yearly <- cost_of_advertisements_per_year
+  
+  total_costs <- yearly_fixed_costs + cost_chicks + total_feed_cost + vet_costs + packaging_cost + ad_costs_yearly
+  
+  yearly_profit <- total_revenue - total_costs
+  
+  npv <- discount(yearly_profit, discount_rate = discount_rate, calculate_NPV = TRUE)
+  
+  return(list(
+    yearly_profit = yearly_profit,
+    npv = npv
+  ))
+}
+
+# 4. Run Monte Carlo simulations
+set.seed(123)
+
+mc_baseline <- mcSimulation(
+  estimate = estimates,
+  model_function = bsfl_baseline_model,
+  numberOfModelRuns = 1000,
+  functionSyntax = "plainNames"
+)
+
+mc_intervention <- mcSimulation(
+  estimate = estimates,
+  model_function = bsfl_model,
+  numberOfModelRuns = 1000,
+  functionSyntax = "plainNames"
+)
+
+# 5. Prepare data for density plots
+baseline_df <- data.frame(
+  Value = c(mc_baseline$y$npv, mc_baseline$y$yearly_profit),
+  Variable = rep(c("NPV", "Yearly Profit"), each = nrow(mc_baseline$y)),
+  Scenario = "Baseline"
+)
+
+intervention_df <- data.frame(
+  Value = c(mc_intervention$y$npv, mc_intervention$y$yearly_profit),
+  Variable = rep(c("NPV", "Yearly Profit"), each = nrow(mc_intervention$y)),
+  Scenario = "Intervention"
+)
+
+combined_df <- bind_rows(baseline_df, intervention_df)
+
+# 6. Plot
+ggplot(combined_df, aes(x = Value, fill = Scenario)) +
+  geom_density(alpha = 0.5, colour = NA) +
+  facet_wrap(~ Variable, scales = "free") +
+  labs(
+    title = "Distributions of NPV and Yearly Profit",
+    x = "Value (GHC)",
+    y = "Probability Density"
+  ) +
+  theme_minimal()
+
