@@ -1,0 +1,81 @@
+---
+title: "Black Soldier Fly Larvae (BSFL) as a Replacement Feed in Layer Poultry Diets"
+author: "*Adeola Olamide, Cynthia, Damilola Omojola Shaibu, Nasim Ranjbar, Swe Zin Moe*"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output:
+  rmarkdown::html_document:
+    toc: true 
+    toc_float: true
+    toc_depth: 4  
+    number_sections: true  
+    theme: journal
+    highlight: espresso
+    fig_caption: true
+    code_folding: hide
+bibliography:
+  - bib/packages.bib
+link-citations: TRUE
+---
+
+<style>
+  .author {
+    color: grey;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  .date {
+  color: grey;
+  margin-top: 20px;
+  font-size: 16px;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+---
+
+### Overview
+
+
+
+<br>
+
+
+### Literature Review
+
+
+
+<br>
+
+
+### Method
+
+
+
+<br>
+
+### Result
+
+
+<br>
+
+### Discussion
+
+
+
+<br>
+
+### Conclusion and Next Steps
+
+
+
+<br>
+
+---
+
+
+
