@@ -128,7 +128,7 @@ plot_distributions(mcSimulation_object = DA_simulation_results,
 
 <br>
 
-The figure below shows the distribution of the value of the decision&mdash; that is, the difference in the net present values (NPV) of the baseline and the intervention. It represents the expected outcome distribution if we make the decision to implement the intervention.
+The figure below shows the distribution of the value of the decision&mdash; that is, the difference in the net present values (NPV) of the baseline and the intervention. It represents the distribution of the expected value if we make the decision to implement the intervention.
 
 ```{r result3}
 
@@ -175,15 +175,15 @@ a <- plot_distributions(mcSimulation_object = DA_simulation_results,
                    new_names = c("Total cost (Baseline)", "Total cost (Intervention)"),
                    method = "boxplot_density", 
                    base_size = 10, 
-                   x_axis_name = "Yearly Cost (GHC)")
+                   x_axis_name = "Ghanaian Cedi (GHC)")
 
 b <- plot_distributions(mcSimulation_object = DA_simulation_results, 
-                   vars = "NPV_cost_saving",
-                   old_names = "NPV_cost_saving",
-                   new_names = "NPV cost saving with intervention",
+                   vars = "total_cost_saved_with_intervention",
+                   old_names = "total_cost_saved_with_intervention",
+                   new_names = "Total cost saved",
                    method = "boxplot_density", 
                    base_size = 10, 
-                   x_axis_name = "Net Present Value (NPV) outcome (GHC)")
+                   x_axis_name = "Ghanaian Cedi (GHC)")
 
 (a + b + plot_layout(widths = c(2, 1))) # +
   # plot_annotation(title = "Cost Comparison and Cost Saving")
@@ -196,7 +196,7 @@ b <- plot_distributions(mcSimulation_object = DA_simulation_results,
 
 ```{r result6}
 
-kable((summary(DA_simulation_results$y[28:30]))) %>%
+kable((summary(DA_simulation_results$y[40:42]))) %>%
   kable_styling(
     bootstrap_options = c("striped", "hover", "condensed", "responsive"),
     position = "center",   
@@ -211,25 +211,39 @@ kable((summary(DA_simulation_results$y[28:30]))) %>%
 
 ```{r result7}
 
-c <- plot_distributions(mcSimulation_object = DA_simulation_results, 
+c <-plot_distributions(mcSimulation_object = DA_simulation_results, 
                    vars = c("total_baseline_feed_cost","total_bsfl_feed_cost"),
                    old_names = c("total_baseline_feed_cost", "total_bsfl_feed_cost"),
-                   new_names = c("Total feed cost (Soybean)", 
-                                 "Total feed cost (BSFL)"),
+                   new_names = c("Total feed cost (Baseline)", 
+                                 "Total feed cost (Intervention)"),
                    method = "boxplot_density", 
                    base_size = 10, 
-                   x_axis_name = "Yearly Cost (GHC)")
+                   x_axis_name = "Ghanaian Cedi (GHC)")
 
 d <- plot_distributions(mcSimulation_object = DA_simulation_results, 
-                   vars = "NPV_feed_cost_saving",
-                   old_names = "NPV_feed_cost_saving",
-                   new_names = "NPV feed cost saving",
+                   vars = "total_feed_cost_saved_with_intervention",
+                   old_names = "total_feed_cost_saved_with_intervention",
+                   new_names = "Total feed cost saved",
                    method = "boxplot_density", 
                    base_size = 10, 
-                   x_axis_name = "NPV feed cost saving (GHC)")
+                   x_axis_name = "Ghanaian Cedi (GHC)")
 
-(c + d + plot_layout(widths = c(2, 1))) # +
-  # plot_annotation(title = "Feed Cost Comparison and Cost Saving")
+(c + d + plot_layout(widths = c(2, 1))) 
+
+```
+
+<br>
+
+The yearly cost saved with BSFL meal replacement can be seen in the annual cashflow plot below.
+
+```{r result7a}
+
+plot_cashflow(mcSimulation_object = DA_simulation_results,
+              cashflow_var_name = "Cashflow_feed_cost_saved",
+              x_axis_name = "Year",
+              y_axis_name = "Cashflow in Ghanaian Cedi (GHC)") 
+
+
 
 ```
 
@@ -239,7 +253,7 @@ d <- plot_distributions(mcSimulation_object = DA_simulation_results,
 
 ```{r result8}
 
-kable((summary(DA_simulation_results$y[31:33]))) %>%
+kable((summary(DA_simulation_results$y[43:45]))) %>%
   kable_styling(
     bootstrap_options = c("striped", "hover", "condensed", "responsive"),
     position = "center",   
@@ -327,40 +341,14 @@ g <- plot_pls(pls_result_2, input_table, threshold = 0.9) +
 
 #### Value of Information (VoI) analysis
 
-The figure below shows the expected value of perfect information for the variables important to each decision model.
+The figure below shows the expected value of perfect information for the variables important to the decision outcome.
 
 ```{r result11}
 
-load("data/data_evpi_baseline.Rda")
-load("data/data_evpi_bsfl.Rda")
 load("data/data_evpi_decision.Rda")
 input_table <- read.csv("data/DA_project_1.csv")
 
-# EVPI Baseline (remove x-axis title and legend)
-h <- plot_evpi(evpi_baseline, 
-               decision_vars = "NPV_baseline", 
-               new_names = "NPV Baseline", 
-               input_table = input_table) +
-     labs(x = NULL) +
-     theme(legend.position = "none")
-
-# EVPI Intervention (remove x-axis title and legend)
-i <- plot_evpi(evpi_bsfl, 
-               decision_vars = "NPV_bsfl", 
-               new_names = "NPV Intervention", 
-               input_table = input_table) +
-     labs(x = NULL) +
-     theme(legend.position = "none")
-
-# EVPI Decision (keep x-axis title and legend)
-j <- plot_evpi(evpi_decision, 
-               decision_vars = "NPV_decision", 
-               new_names = "NPV Decision", 
-               input_table = input_table)
-
-# Combine vertically 
-(h / i / j) + 
-  plot_layout(heights = c(2, 1, 1))
+plot_evpi(evpi_decision, input_table = input_table, decision_vars = "NPV_decision")
 
 ```
 
@@ -402,6 +390,8 @@ kable(summary_df) %>%
 <br>
 
 ### Discussion
+
+
 
 
 

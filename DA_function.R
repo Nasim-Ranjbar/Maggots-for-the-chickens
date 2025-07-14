@@ -365,26 +365,20 @@ DA_function <- function(x, varnames) {
                             discount_rate = discount_rate,
                             calculate_NPV = TRUE)
   
-  NPV_cost_saving <- discount(x = Yearly_cost_saved_with_intervention,
-                              discount_rate = discount_rate,
-                              calculate_NPV = TRUE)
-  
-  NPV_feed_cost_saving <- discount(x = Yearly_feed_cost_saved_with_intervention,
-                                   discount_rate = discount_rate,
-                                   calculate_NPV = TRUE)
-  
   
   return(list(NPV_baseline = NPV_baseline,
               NPV_bsfl = NPV_bsfl,
               NPV_decision = NPV_decision,
               Cashflow_baseline = baseline_result,
               Cashflow_bsfl = bsfl_result,
+              Cashflow_feed_cost_saved = 
+                Yearly_feed_cost_saved_with_intervention,
               total_bsfl_cost = sum(total_bsfl_cost),
               total_baseline_cost = sum(total_baseline_cost),
-              NPV_cost_saving = NPV_cost_saving,
+              total_cost_saved_with_intervention = 
+                sum(Yearly_cost_saved_with_intervention),
+              total_feed_cost_saved_with_intervention = 
+                sum(Yearly_feed_cost_saved_with_intervention),
               total_baseline_feed_cost = sum(total_baseline_feed_cost),
-              total_bsfl_feed_cost = sum(total_bsfl_feed_cost),
-              NPV_feed_cost_saving = NPV_feed_cost_saving))
-  
+              total_bsfl_feed_cost = sum(total_bsfl_feed_cost)))
 }
-
