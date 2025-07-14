@@ -1,0 +1,99 @@
+variable,distribution,lower,median,upper,label,,,,,,,,,,,,
+discount_rate,posnorm,10,,50,Discount rate (%),,,,,,,,,,,,
+var_CV,tnorm_0_1,0.1,,0.3,Coefficient of variation (%),,,,,,,,,,,,
+n_year,const,12,,12,number of years for simuation,,,,,,,,,,,,
+
+number_chicks_per_batch,posnorm,300,,500,Number of chicks purchased per batch ,,,,,,,,,,,,
+cost_per_day_old_chick,posnorm,22,,28,Cost per day-old chick (GHC),,,,,,,,,,,,
+number_yearly_festive_sale,posnorm,1,,3,Number of festive sales per year ,,,,,,,,,,,,
+number_broiler_chick_per_festive,posnorm,300,,1000,Number of extra chicks purchase for festive sales,,,,,,,,,,,,
+cost_per_festive_broiler_chick,posnorm,18,,23,Cost per chick during festive season (GHC),,,,,,,,,,,,
+
+cost_maize_feed_per_100kg,posnorm,230,,320,Cost per 100kg of maize feed (GHC),,,,,,,,,,,,
+cost_concentrate_per_100kg,posnorm,590,,622,Cost per 100kg of feed concentrate (GHC),,,,,,,,,,,,
+cost_BSFL_powder_per_100kg,posnorm,300,,520,Cost per 100 kg of BSFL powder (GHC),,,,,,,,,,,,
+
+monthly_water_bill,posnorm,100,,400,"Monthly water bill, excluding feed water (GHC)",,,,,,,,,,,,
+monthly_electricity_bill,posnorm,100,,200,Monthly electricity bill related to all farm activities (GHC),,,,,,,,,,,,
+
+cost_building_maintenance_yearly,posnorm,500,,1000,Yearly building maintenance cost (GHC),,,,,,,,,,,,
+cost_monthly_disinfectant,posnorm,1000,,1500,Cost of monthly disinfecting solutions (GHC),,,,,,,,,,,,
+cost_packaging_per_100_crates,posnorm,55,,65,Cost of packaging per 100 crates of 30 eggs each (GHC),,,,,,,,,,,,
+cost_materials_per_month,posnorm,50,,100,Cost of farm tools and miscellanous materials per month (GHC),,,,,,,,,,,,
+cost_monthly_transportation,posnorm,20,,50,Cost of all farm related trasportation per month (GHC),,,,,,,,,,,,
+
+number_caretaker,posnorm,1,,3,Number of caretakers employed per year ,,,,,,,,,,,,
+monthly_salary_caretaker,posnorm,1200,,1500,Monthly salary per caretaker (GHC),,,,,,,,,,,,
+monthly_salary_for_manager,posnorm,1800,,2000,Monthly salary for the manager (GHC),,,,,,,,,,,,
+percent_sale_provision_manager,const,0.05,,0.05,Percent provisions paid out to manager per sale (%),,,,,,,,,,,,
+number_new_customer_monthly,posnorm,5,,30,Number of monthly new customers manager bring in ,,,,,,,,,,,,
+number_eggs_crate_sale_per_new_cus,posnorm,1,,20,Number of crates sold per new customer,,,,,,,,,,,,
+monthly_salary_assistant,posnorm,1500,,1800,Monthly salary for the assistant manager (GHC),,,,,,,,,,,,
+baseline_farm_cost_per_crate,posnorm,30,,60,Estimate production cost per crate of 30 eggs (GHC),,,,,,,,,,,,
+
+cost_monthly_antibiotics,posnorm,1000,,1500,Cost of montly antibiotics in the feeds (GHC),,,,,,,,,,,,
+cost_yearly_vaccinations,posnorm,100,,200,Cost of yearly vaccinations  (GHC),,,,,,,,,,,,
+cost_per_doctor_visit,posnorm,50,,100,"Cost per doctor visit, except for vacinnation (GHC) ",,,,,,,,,,,,
+number_doctor_visit_yearly,posnorm,1,,5,Number of doctor visits per year ,,,,,,,,,,,,
+cost_yearly_medical_bill,posnorm,50,,100,Cost of medicines for sick birds per year (GHC),,,,,,,,,,,,
+bsfl_immune_boosting_effect,tnorm_0_1,0.4,,0.9,Probability of BSFL feed boosting birds' immune and preventing diseases (%),,,,,,,,,,,,
+yearly_loss_birds_death,posnorm,100,,300,Value loss due to bird deaths and egg loss per year (GHC),,,,,,,,,,,,
+
+price_per_bird_meat,posnorm,60,,80,Selling price per bird after egg laying (GHC),,,,,,,,,,,,
+price_per_festive_bird,posnorm,100,,120,Selling price per brioler bird during festive season (GHC),,,,,,,,,,,,
+number_egg_per_bird_per_month,posnorm,25,,30,Number of eggs laid per bird per month,,,,,,,,,,,,
+price_per_crate_30egg,posnorm,30,,60,Selling price per crate of 30 eggs (GHC),,,,,,,,,,,,
+festive_price_increase,tnorm_0_1,0.1,,0.8,Price increase during festive month (%),,,,,,,,,,,,
+festive_egg_sale_increase,tnorm_0_1,0.6,,0.9,Percent egg sale increase during festive season (%),,,,,,,,,,,,
+
+number_manure_bag_per_month,posnorm,150,,250,Number of manure/wood shavings bags per month ,,,,,,,,,,,,
+price_per_manure_bag,posnorm,4,,6,Selling price per manure/wood shavings bag (GHC),,,,,,,,,,,,
+
+cost_per_advertisement,posnorm,50,,100,Cost per advertisement during festive seasons (GHC),,,,,,,,,,,,
+
+feed_per_festive_chick_per_month,posnorm,4,,6,Monthly feed per festive broiler chick per month (kg),,,,,,,,,,,,
+percent_demand_increase,posnorm,0.1,,0.3,Percent increase in egg demands to consider for extra eggs purchase(%),,,,,,,,,,,,
+
+chance_bsfl_ad_success,tnorm_0_1,0.1,,0.9,Probability of extra promotion boosting sales (%),,,,,,,,,,,,
+yearly_extra_bsfl_ad_cost,posnorm,100,,150,Yearly cost of promotions for BSFL intervention (GHC),,,,,,,,,,,,
+percent_cost_increase,tnorm_0_1,0.1,,0.7,Percent cost increase with sale boosts (%),,,,,,,,,,,,
+percent_benefit_increase,tnorm_0_1,0.1,,0.8,Percent benefit increase with sale boosts (%),,,,,,,,,,,,
+chance_taste_color_change_accepted,tnorm_0_1,0.1,,0.8,Probability that taste and color change are well-received (%),,,,,,,,,,,,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

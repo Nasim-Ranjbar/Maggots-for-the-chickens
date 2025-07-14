@@ -237,6 +237,16 @@ DA_function <- function(x, varnames) {
   
   layer_meat_sale
   
+  # Calculate total feed cost
+  
+  total_baseline_feed_cost <- vv(yearly_baseline_feed_cost +
+                                   yearly_baseline_festive_feed_cost,
+                                 var_CV, n_year)
+  
+  total_bsfl_feed_cost <- vv(yearly_bsfl_feed_cost +
+                               yearly_bsfl_festive_feed_cost,
+                             var_CV, n_year)
+  
   
   # Calculate total baseline cost
   
@@ -338,6 +348,9 @@ DA_function <- function(x, varnames) {
   
   Yearly_cost_saved_with_intervention <- total_baseline_cost - total_bsfl_cost
   
+  Yearly_feed_cost_saved_with_intervention <- total_baseline_feed_cost - total_bsfl_feed_cost
+  
+  
   # Calculate NPV
   
   NPV_baseline <- discount (x = baseline_result,
@@ -356,6 +369,10 @@ DA_function <- function(x, varnames) {
                               discount_rate = discount_rate,
                               calculate_NPV = TRUE)
   
+  NPV_feed_cost_saving <- discount(x = Yearly_feed_cost_saved_with_intervention,
+                                   discount_rate = discount_rate,
+                                   calculate_NPV = TRUE)
+  
   
   return(list(NPV_baseline = NPV_baseline,
               NPV_bsfl = NPV_bsfl,
@@ -364,6 +381,10 @@ DA_function <- function(x, varnames) {
               Cashflow_bsfl = bsfl_result,
               total_bsfl_cost = sum(total_bsfl_cost),
               total_baseline_cost = sum(total_baseline_cost),
-              NPV_cost_saving = NPV_cost_saving ))
+              NPV_cost_saving = NPV_cost_saving,
+              total_baseline_feed_cost = sum(total_baseline_feed_cost),
+              total_bsfl_feed_cost = sum(total_bsfl_feed_cost),
+              NPV_feed_cost_saving = NPV_feed_cost_saving))
   
 }
+

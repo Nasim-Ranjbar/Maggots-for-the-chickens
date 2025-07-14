@@ -60,6 +60,8 @@ percent_cost_increase,tnorm_0_1,0.1,,0.7,Percent cost increase with sale boosts 
 percent_benefit_increase,tnorm_0_1,0.1,,0.8,Percent benefit increase with sale boosts (%),,,,,,,,,,,,
 chance_taste_color_change_accepted,tnorm_0_1,0.1,,0.8,Probability that taste and color change are well-received (%),,,,,,,,,,,,
 
+NPV_baseline,,,,,Net present value of the baseline model,,,,,,,,,,,,
+NPV_bsfl,,,,,Net present value of the intervention model,,,,,,,,,,,,
 
 
 
