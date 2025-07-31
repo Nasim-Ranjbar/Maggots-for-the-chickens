@@ -1,0 +1,37 @@
+---
+title: "Literature Review on BSFL for Chicken"
+author: "Shaibu Damilola Omojola"
+date: "2025-07-18"
+output: html_document
+bibliography:
+ bib/references.bib
+
+
+---
+
+# Effects of Black Soldier Fly Larvae (BSFL) Feeds on Yield and Sensory Attributes
+BSFL feeds generally maintain or improve yield parameters like body weight, feed conversion, and meat cuts in broilers, while also positively influencing sensory attributes such as yolk color in laying hens and meat flavour/sweetness in broilers ([@patterson_impact_2021]. However, higher inclusion levels for laying hens have the potential for increased lauric acid in broiler meat lipids, which is considered dietetically undesirable for human nutrition, despite not significantly impacting overall consumer acceptance [@patterson_impact_2021]. According to [@nguyen_effects_2024], supplementing BSFL meal at 6% to 12% resulted in enhanced growth rates compared to the control group, with significant differences from week 7 onwards. 
+
+The study shows that the 12% inclusion group (EG2) had the highest average body weight (738.1 g), similar to the 6% group (EG1, 736 g), and notably surpassed the control (603 g).[@kieronczyk_black_2023] reported that BSFL larvae fat, particularly at 60 g/kg (HI06), resulted in comparable growth performance parameters to those achieved with dietary soybean oil, suggesting that BSFL larvae fat can fully replace soybean oil without detrimental effects due to similar energy densities. 
+
+BSFL oil and meal can be used for egg production and yolk colouration. According to [@patterson_impact_2021], yolk colour was greater (darker) among hens fed BSFL oil compared to controls; a linear increase in dietary BSFL oil percentage resulted in darker yolk colour. Similarly, yolk colour was enhanced by all levels of BSFL meal, with 16% meal showing significantly greater yolk colour than controls. [@mwaniki_complete_2020] also reported increased yolk colour with greater amounts of BSFL meal.
+
+Dietary inclusion of up to 15% BSFL meal in broiler chicken diets had significant effects on the sensory characteristics of cooked breast meat, including aroma, taste, and overall acceptability [@onsongo_performance_2017]. Another study on broilers also found that BSFL larvae fat did not impair physicochemical indices related to consumer acceptance, such as colour, pH, and water-holding capacity, to an extent that would negatively limit the final decision [@kieronczyk_black_2023]. However, [@nguyen_effects_2024] found that BSFL supplementation improved the flavour and sweetness of chicken meat, reflected in a higher content of glutamic acid.
+
+#  Nutritional Value of Black Soldier Fly Larvae (BSFL) Feeds
+
+Black Soldier Fly Larvae (BSFL) feeds are recognized as a promising alternative feed ingredient for poultry due to their rich nutritional profile. The United States Food and Drug Administration (US FDA) and the Association of American Feed Control Officials have approved BSFL as a feed ingredient for poultry [@patterson_impact_2021]. BSFL can be a concentrated source of various nutrients depending on its developmental stage. They are rich in crude protein (CP), lipids (ether extract, EE), and minerals such as calcium and phosphorus [@marono_productive_2017, @mwaniki_egg_2018]. However, their precise nutritional composition is influenced by factors such as the larval developmental stage, the type of substrate they are reared on, and the processing methods used [@patterson_impact_2021].  The dry matter (DM) content of BSFL larvae is typically high, reported around 97.0% to 96.94% for BSFL [@patterson_impact_2021,@onsongo_performance_2017]. 
+
+Crude Protein (CP): Analyzed CP values for BSFL meal vary, with one study reporting 46.30% [@patterson_impact_2021] and another 43.9% [@onsongo_performance_2017]. Some sources cite ranges from 35% to 57% or 36.9% to 43.6% [@veldkamp_insects_2012].  Although BSF larvae on average contain both a high protein and fat content [@zheng_double_2012], the body composition of the larvae depends on the quality and quantity of food ingested [@nguyen_effects_2024]. Others have found protein contents that range from 35% crude protein [@haasbroek_use_2016] to 44% protein [@surendra_bioconversion_2016] for dried full-fat BSF larvae. BSF larvae have been found to contain 58-72% saturated fatty acids and 19-40% mono- and poly-unsaturated fatty acids of total fat content containing high levels of lauric, palmitic and oleic acid [@surendra_bioconversion_2016].
+
+Amino acid content of Black Soldier Fly: The amino acid (AA) composition of BSF is rich in methionine and lysine (9.05 and 22.3 g/kg DM, respectively [@oonincx_feed_2015]
+Fatty acid percentage of Black Soldier Fly: Compared with other insects, the black soldier fly commonly contains a higher amount of fat (up to approximately 40%) and is rich in saturated fatty acids (SFA), especially palmitic acid (C16:0) and lauric acid (C12:0). However, the fat content and fatty acid composition of the larvae dramatically vary (from 5% to 40% dry matter) with the rearing substrates [@riekkinen_effect_2022].
+
+Ether Extract (EE) / Fat: BSFL are a concentrated source of lipids, with values around 28% or 11.90% for BSFL meal [@patterson_impact_2021]. Other reported ranges for BSFL larvae fat content are between 15.0% and 34.8% or even up to 47% on a dry matter basis . The fat content can vary widely depending on the substrate on which the larvae are reared.
+
+## Economic Effects of Black Soldier Fly Larvae (BSFL) Feeds in Poultry Production 
+Including Black Soldier Fly Larvae (BSFL) feeds in poultry diets can have significant positive economic impacts, primarily by reducing feed costs and improving profitability. According to [@onsongo_performance_2017], BSFL meal can serve as a cheaper alternative protein source to conventional ingredients like soybean meal (SBM) and fish meal (FM). The study found that the cost of feed consumed gradually decreased as more SBM and FM were replaced with BSFL meal in the diets, from the control to the 15% BSFL inclusion (L3) diet. The potential for large-scale insect rearing, especially using bio-waste, further reduces production costs, making insect meal a viable and cheaper alternative to fish and soybean meal. This suggests that BSFL can be a sustainable and economically competitive alternative [ @heuel_black_2022]. 
+
+In terms of profitability, replacing traditional protein sources with BSFL meal at up to 15% inclusion in broiler diets led to the highest Cost Benefit Ratio (CBR) and best Return on Investment (RoI) [@onsongo_performance_2017].
+
+#  References
