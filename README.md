@@ -8,4 +8,4 @@ We then drew a decision model to clearly delineate the impact pathway between di
 
 <br>
 
-![***Impact Pathway Model showing Causal Relationships Between Costs, Benefits and Risk of the Intervention***](./impact_pathway_model.jpg){height=500px}
+![***Impact Pathway Model showing Causal Relationships Between Costs, Benefits and Risk of the Intervention***](./impact_pathway_model.jpg)
