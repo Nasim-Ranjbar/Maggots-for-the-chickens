@@ -9,3 +9,7 @@ We then drew a decision model to clearly delineate the impact pathway between di
 <br>
 
 ![***Impact Pathway Model showing Causal Relationships Between Costs, Benefits and Risk of the Intervention***](./impact_pathway_model.jpg)
+
+<br>
+
+Further information on this project is available at this [link.](https://rawcdn.githack.com/Nasim-Ranjbar/Maggots-for-the-chickens/4d70bf898e92082b3460908b0e0de14a1478f5c9/Maggots_for_the_chickens.html)
